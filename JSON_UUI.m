@@ -14,6 +14,9 @@
 @synthesize nsstr_App= _nsstr_App;
 @synthesize nsstr_msg= _nsstr_msg;
 
+@synthesize nsstr_Datetime= _nsstr_Datetime;
+@synthesize nsstr_Referer= _nsstr_Referer;
+
 - (id) init
 {
 	self= [super init];
@@ -28,6 +31,41 @@
 		_nsstr_Cmd= nsstr_Cmd;
 		_nsstr_App= nsstr_App;
 		_nsstr_msg= nsstr_msg;
+	}
+	return self;
+}
+
+- (id) initWithJSON:(NSString*)nsstr_json
+{
+	if ([self init])
+	{
+		NSError* nserr;
+		NSJSONReadingOptions r_opts= 0; //= NSJSONReadingJSON5Allowed;
+		id id_JSON= [NSJSONSerialization JSONObjectWithData:[nsstr_json dataUsingEncoding:NSUTF8StringEncoding]
+													options:r_opts
+													  error:&nserr];
+		
+		if (! [id_JSON isKindOfClass:[NSDictionary class]] )
+			return nil;
+		
+		NSDictionary* nsdic_JSON= id_JSON;
+		
+		id id_UUI= nsdic_JSON[@"UUI"];
+		if (! [id_UUI isKindOfClass:[NSDictionary class]] )
+			return nil;
+		
+		NSDictionary* nsdic_UUI= id_UUI;
+		
+		_nsstr_Cmd= nsdic_UUI[@"cmd"];
+		_nsstr_App= nsdic_UUI[@"app"];
+		_nsstr_msg= nsdic_UUI[@"_msg"];
+		
+		_nsstr_Datetime= nsdic_JSON[@"dt"];
+		_nsstr_Referer= nsdic_JSON[@"referer"];
+		
+		// -----
+		
+		NSCAssert(_nsstr_Datetime != nil, @"No datetime timestamp found on message"); // NS_C_Assert, used for C functions only
 	}
 	return self;
 }

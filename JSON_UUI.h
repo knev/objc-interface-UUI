@@ -16,8 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* nsstr_App;
 @property NSString* nsstr_msg;
 
+@property NSString* nsstr_Datetime;
+@property NSString* nsstr_Referer;
+
 - (id) init;
 - (id) initWithCommand:(NSString*)nsstr_Cmd withApp:(NSString*)nsstr_App withSrc:(NSString*)nsstr_msg;
+- (id) initWithJSON:(NSString*)nsstr_json;
 - (NSString*) serializeToJSON;
 
 @end

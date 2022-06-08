@@ -13,14 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JSON_UUI : NSObject
 
 @property NSString* nsstr_Cmd;
-@property NSString* nsstr_App;
-@property NSString* nsstr_msg;
+@property NSString* nsstr_Src;
+@property NSString* nsstr_Dest;
+@property NSString* nsstr_;
 
 @property NSString* nsstr_Datetime;
 @property NSString* nsstr_Referer;
 
 - (id) init;
-- (id) initWithCommand:(NSString*)nsstr_Cmd withApp:(NSString*)nsstr_App withSrc:(NSString*)nsstr_msg;
+- (id) initWithCommand:(NSString*)nsstr_Cmd withSrc:(NSString*)nsstr_Src withDest:(NSString*)nsstr_Dest with_:(NSString*)nsstr_;
 - (id) initWithJSON:(NSString*)nsstr_json;
 - (NSString*) serializeToJSON;
 

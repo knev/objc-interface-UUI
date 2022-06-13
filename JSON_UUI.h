@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id) init;
 - (id) initWithCommand:(NSString*)nsstr_Cmd withSrc:(NSString*)nsstr_Src withDest:(NSString*)nsstr_Dest with_:(NSString*)nsstr_;
-- (id) initWithJSON:(NSString*)nsstr_json;
+- (id) initWithJSON:(NSDictionary*)nsdic_JSON;
 - (NSString*) serializeToJSON;
 
 @end

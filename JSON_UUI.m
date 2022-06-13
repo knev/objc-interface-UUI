@@ -37,21 +37,10 @@
 	return self;
 }
 
-- (id) initWithJSON:(NSString*)nsstr_json
+- (id) initWithJSON:(NSDictionary*)nsdic_JSON
 {
 	if ([self init])
 	{
-		NSError* nserr;
-		NSJSONReadingOptions r_opts= 0; //= NSJSONReadingJSON5Allowed;
-		id id_JSON= [NSJSONSerialization JSONObjectWithData:[nsstr_json dataUsingEncoding:NSUTF8StringEncoding]
-													options:r_opts
-													  error:&nserr];
-		
-		if (! [id_JSON isKindOfClass:[NSDictionary class]] )
-			return nil;
-		
-		NSDictionary* nsdic_JSON= id_JSON;
-		
 		id id_UUI= nsdic_JSON[@"UUI"];
 		if (! [id_UUI isKindOfClass:[NSDictionary class]] )
 			return nil;

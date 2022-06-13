@@ -13,7 +13,7 @@
 @synthesize nsstr_Cmd= _nsstr_Cmd;
 @synthesize nsstr_Src= _nsstr_Src;
 @synthesize nsstr_Dest= _nsstr_Dest;
-@synthesize nsstr_= _nsstr_;
+@synthesize id_msg= _id_msg;
 
 @synthesize nsstr_Datetime= _nsstr_Datetime;
 @synthesize nsstr_Referer= _nsstr_Referer;
@@ -26,13 +26,13 @@
 	return self;
 }
 
-- (id) initWithCommand:(NSString*)nsstr_Cmd withSrc:(NSString*)nsstr_Src withDest:(NSString*)nsstr_Dest with_:(NSString*)nsstr_
+- (id) initWithCommand:(NSString*)nsstr_Cmd withSrc:(NSString*)nsstr_Src withDest:(NSString*)nsstr_Dest with_:(id)id_msg
 {
 	if ([self init]) {
 		_nsstr_Cmd= nsstr_Cmd;
 		_nsstr_Src= nsstr_Src;
 		_nsstr_Dest= nsstr_Dest;
-		_nsstr_= nsstr_;
+		_id_msg= id_msg;
 	}
 	return self;
 }
@@ -50,7 +50,7 @@
 		_nsstr_Cmd= nsdic_UUI[@"cmd"];
 		_nsstr_Src= nsdic_UUI[@"src"];
 		_nsstr_Dest= nsdic_UUI[@"dest"];
-		_nsstr_= nsdic_UUI[@"_msg"];
+		_id_msg= nsdic_UUI[@"_msg"];
 		
 		_nsstr_Datetime= nsdic_JSON[@"dt"];
 		_nsstr_Referer= nsdic_JSON[@"referer"];
@@ -71,7 +71,7 @@
 			@"cmd" : _nsstr_Cmd,
 			@"src" : _nsstr_Src,
 			@"dest" : _nsstr_Dest,
-			@"_msg" : _nsstr_,
+			@"_msg" : _id_msg,
 		};
 	
 	NSDictionary* nsdic_Msg= @{
